@@ -4,7 +4,7 @@ const crownUrl = "https://cdn-icons-png.flaticon.com/512/2583/2583344.png";
 // Register Font
 registerFont('./fonts/Cubic_11.ttf', { family: 'Cubic11' });
 
-async function generateCheckInImage(teamInfo) {
+async function generateCheckInImage(teamInfo, teamSize) {
   const cardWidth = 150;
   const cardHeight = 170;
   const padding = 20;
@@ -44,7 +44,8 @@ async function generateCheckInImage(teamInfo) {
   ctx.fillStyle = "#00ccff";
   ctx.font = "20px Cubic11";
   ctx.textAlign = "left";
-  ctx.fillText("Side Project Taiwan - SP Team", padding, 32);
+  ctx.fillText("Side Project Taiwan - SP Team", padding, 28);
+  ctx.fillText(`Team Members: ${teamSize}`, padding, 50);
 
   ctx.textAlign = "center";
 
@@ -136,7 +137,7 @@ async function generateCheckInImage(teamInfo) {
 };
 
 
-async function drawSpRanking(teamInfo, duration = 'all') {
+async function drawSpRanking(teamInfo, text = 'all') {
   const cardWidth = 420;
   const cardHeight = 80;
   const padding = 20;
@@ -160,7 +161,7 @@ async function drawSpRanking(teamInfo, duration = 'all') {
   ctx.font = "20px Cubic11";
   ctx.fillStyle = "#00ccff";
   ctx.textBaseline = "top";
-  ctx.fillText(`[${duration}] Side Project Point Ranking`, padding, padding);
+  ctx.fillText(`[${text}] SP Ranking`, padding, padding);
 
   // Draw
   const offsetY = padding + titleHeight;
